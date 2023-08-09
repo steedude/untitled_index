@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import OhHello from '../components/OhHello.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>home page</div>
+  <OhHello />
 </template>
+
+<style lang="scss" scoped></style>
