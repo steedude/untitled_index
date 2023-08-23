@@ -3,8 +3,8 @@ import OhHello from '../components/OhHello.vue'
 import { reactive } from 'vue'
 import axios from 'axios'
 const loginData = reactive({
-  account: '',
-  password: ''
+  account: 'test2',
+  password: '123456'
 })
 const login = () => {
   axios({
@@ -17,11 +17,9 @@ const login = () => {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(function (response) {
-      //handle success
-      console.log(response)
+      console.log(response.data.resultMap.token)
     })
     .catch(function (response) {
-      //handle error
       console.log(response)
     })
 }
