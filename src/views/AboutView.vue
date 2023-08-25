@@ -3,7 +3,7 @@ import OhHello from '../components/OhHello.vue'
 import { ref } from 'vue'
 import axios from 'axios'
 const myToken = ref(
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZGNhMGNhZjUyOThhZmVlMDc5ZGUzOSIsImlhdCI6MTY5Mjc2MDcxN30.FqOqdsLJAP3AcM6Zap_wLVK4MDOZjm5NlPZ3meKihdk'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTcwZDMyZTgyMzJhMTk5MThiYTBkNCIsImlhdCI6MTY5MjkzMjQ3MX0.5NiHtKyX4t3enCOD0JHTNYLsCoHTsqNXwmVTXm17GAo'
 )
 const getData = () => {
   axios({
