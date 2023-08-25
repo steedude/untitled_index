@@ -1,9 +1,8 @@
 <script setup>
-import OhHello from '../components/OhHello.vue'
 import { ref } from 'vue'
 import axios from 'axios'
 const myToken = ref(
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTcwZDMyZTgyMzJhMTk5MThiYTBkNCIsImlhdCI6MTY5MjkzMjQ3MX0.5NiHtKyX4t3enCOD0JHTNYLsCoHTsqNXwmVTXm17GAo'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTg0YjAxYzhmMDNhMzM0NTU5ZTM3MCIsImlhdCI6MTY5Mjk0NjA0NX0.zq10tGJCoeQa83YciTfB6QfPw0qnbaAjmPWONGa1Q2U'
 )
 const getData = () => {
   axios({
@@ -12,7 +11,7 @@ const getData = () => {
     headers: { Authorization: 'Bearer ' + myToken.value }
   })
     .then(function (response) {
-      console.log(response)
+      console.log(response.data.resultMap)
     })
     .catch(function (response) {
       console.log(response)
@@ -21,8 +20,7 @@ const getData = () => {
 </script>
 
 <template>
-  <div>home page</div>
-  <OhHello />
+  <div>測試拿資料</div>
   <label for="token">token:</label>
   <textarea id="token" rows="6" cols="40" v-model="myToken"></textarea>
   <button @click="getData">拿資料</button>

@@ -26,8 +26,8 @@ const login = () => {
 </script>
 
 <template>
-  <div>home page</div>
   <OhHello />
+  <div>登入頁</div>
   <label for="username">帳號：</label>
   <input type="text" id="username" v-model="loginData.username" />
   <label for="password">密碼：</label>
