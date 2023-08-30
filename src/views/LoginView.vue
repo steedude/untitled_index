@@ -9,7 +9,7 @@ const loginData = reactive({
 const login = () => {
   axios({
     method: 'post',
-    url: 'http://127.0.0.1:9001/api/login',
+    url: `${import.meta.env.VITE_API_URL}/api/login`,
     data: {
       username: loginData.username,
       password: loginData.password

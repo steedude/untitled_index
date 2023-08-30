@@ -7,7 +7,7 @@ const myToken = ref(
 const getData = () => {
   axios({
     method: 'get',
-    url: 'http://127.0.0.1:9001/api/test',
+    url: `${import.meta.env.VITE_API_URL}/api/test`,
     headers: { Authorization: 'Bearer ' + myToken.value }
   })
     .then(function (response) {
