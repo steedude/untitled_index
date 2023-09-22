@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useUserStore } from '@/stores'
+import errorCode from '@/utils/errorCode'
 
-const baseURL = import.meta.env.VITE_API_URL
-const axiosInstance = axios.create({ baseURL })
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  timeout: 50000
+})
 
 axiosInstance.interceptors.request.use(
   (config) => {
@@ -14,13 +17,25 @@ axiosInstance.interceptors.request.use(
     }
     return config
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject({ resultCode: 1000, message: JSON.stringify(error) })
 )
 
 axiosInstance.interceptors.response.use(
-  (response) => response.data,
+  (response) => {
+    return response.data
+  },
   (error) => {
-    return Promise.reject(error)
+    if (error.response) {
+      if (error.response.data.message) {
+        return Promise.reject(error.response.data)
+      }
+      return Promise.reject({
+        ...error.response.data,
+        message: errorCode[error.response.data.resultCode]
+      })
+    } else {
+      return Promise.reject({ resultCode: 1000, message: JSON.stringify(error) })
+    }
   }
 )
 

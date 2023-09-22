@@ -8,14 +8,12 @@ const loginData = reactive({
   username: 'test2',
   password: '123456'
 })
-const login = () => {
-  loginUser({ username: loginData.username, password: loginData.password })
-    .then(function (response) {
-      console.log(response.data.resultMap.token)
-    })
-    .catch(function (response) {
-      console.log(response)
-    })
+const login = async () => {
+  try {
+    await loginUser({ username: loginData.username, password: loginData.password })
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 

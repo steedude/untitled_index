@@ -24,22 +24,14 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // 取得token
   const { getToken } = useUserStore()
   const token = getToken()
-
-  // 有token
   if (token) {
-    // 放行
     return next()
   }
-  // 否則沒有token
-  // 如果去的登陸
   if (to.path === '/login') {
-    // 放行
     return next()
   }
-  // 如果去的是其他頁,跳轉到登陸
   return next({ path: '/login' })
 })
 
