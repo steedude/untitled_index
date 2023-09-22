@@ -1,21 +1,15 @@
 <script setup>
 import OhHello from '../components/OhHello.vue'
 import { reactive } from 'vue'
-import axios from 'axios'
+import { useUserStore } from '@/stores'
+const { loginUser } = useUserStore()
+
 const loginData = reactive({
   username: 'test2',
   password: '123456'
 })
 const login = () => {
-  axios({
-    method: 'post',
-    url: `${import.meta.env.VITE_API_URL}/api/login`,
-    data: {
-      username: loginData.username,
-      password: loginData.password
-    },
-    headers: { 'Content-Type': 'application/json' }
-  })
+  loginUser({ username: loginData.username, password: loginData.password })
     .then(function (response) {
       console.log(response.data.resultMap.token)
     })

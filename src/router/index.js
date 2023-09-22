@@ -35,12 +35,12 @@ router.beforeEach((to, from, next) => {
   }
   // 否則沒有token
   // 如果去的登陸
-  if (to.path === '/auth') {
+  if (to.path === '/login') {
     // 放行
     return next()
   }
   // 如果去的是其他頁,跳轉到登陸
-  return next({ path: '/auth' })
+  return next({ path: '/login' })
 })
 
 export default router

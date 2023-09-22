@@ -13,11 +13,11 @@ export default defineStore(
     const image = ref('')
 
     function setToken(tokenStr) {
-      localStorage.setItem('booking_fe_token', tokenStr)
+      localStorage.setItem('untitled_index_token', tokenStr)
     }
 
     function getToken() {
-      return localStorage.getItem('booking_fe_token')
+      return localStorage.getItem('untitled_index_token')
     }
 
     function setUserValueByData(serverUserData) {
@@ -37,7 +37,7 @@ export default defineStore(
 
     async function logoutUser() {
       await logoutUserApi()
-      localStorage.removeItem('booking_fe_token')
+      localStorage.removeItem('untitled_index_token')
       account.value = ''
       name.value = ''
       image.value = DEFAULT_IMAGE
