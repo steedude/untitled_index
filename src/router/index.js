@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Register from '../views/RegisterView.vue'
 import { useUserStore } from '@/stores'
 
 const router = createRouter({
@@ -7,18 +6,18 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'register',
-      component: Register
+      name: 'home',
+      component: () => import('../views/HomeView.vue')
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue')
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('../views/LoginView.vue')
-    },
-    {
-      path: '/data',
-      name: 'dtat',
-      component: () => import('../views/DataView.vue')
     }
   ]
 })

@@ -12,8 +12,7 @@ const getData = async () => {
 </script>
 
 <template>
-  <div>測試拿資料</div>
-
+  <div>關於我們</div>
   <button @click="getData">拿資料</button>
 </template>
 

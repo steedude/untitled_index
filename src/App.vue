@@ -1,12 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores'
+const userStore = useUserStore()
+const { isLogin } = storeToRefs(userStore)
+const { logoutUser } = userStore
 </script>
 
 <template>
   <nav>
-    <RouterLink to="/">註冊</RouterLink>
-    <RouterLink to="/login">登入</RouterLink>
-    <RouterLink to="/data">拿資料</RouterLink>
+    <RouterLink to="/">首頁</RouterLink>
+    <RouterLink to="/about">關於</RouterLink>
+    <RouterLink v-if="!isLogin" to="/login">登入</RouterLink>
+    <button v-if="isLogin" @click="logoutUser">登出</button>
   </nav>
 
   <RouterView />

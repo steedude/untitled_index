@@ -12,8 +12,10 @@ export default defineStore(
   () => {
     const account = ref('')
     const updated = ref('')
+    const isLogin = ref(false)
 
     function setToken(tokenStr) {
+      isLogin.value = true
       localStorage.setItem('untitled_index_token', tokenStr)
     }
 
@@ -40,6 +42,7 @@ export default defineStore(
       localStorage.removeItem('untitled_index_token')
       account.value = ''
       updated.value = ''
+      isLogin.value = false
     }
 
     // async function loginUserByGoogle(data) {
@@ -57,15 +60,13 @@ export default defineStore(
     }
 
     async function registerUser(data) {
-      const res = await registerUserApi(data)
-      const { token, user } = res.resultMap
-      setToken(token)
-      setUserValueByData(user)
+      await registerUserApi(data)
     }
 
     return {
       account,
       updated,
+      isLogin,
       getToken,
       loginUser,
       logoutUser,
