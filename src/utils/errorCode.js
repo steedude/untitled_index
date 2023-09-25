@@ -7,7 +7,8 @@ const errorCode = {
   1004: 'Incorrect username or password',
   1005: 'missing token',
   1006: 'User does not exist',
-  1007: 'Unauthorized'
+  1007: 'Token is expired',
+  1008: 'Unauthorized'
 }
 
 export default errorCode
