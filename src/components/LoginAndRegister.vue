@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue'
 import { useUserStore } from '@/stores'
+import router from '../router'
 const { loginUser, registerUser } = useUserStore()
 
 const loginData = reactive({
@@ -16,6 +17,7 @@ const registerData = reactive({
 const login = async () => {
   try {
     await loginUser({ username: loginData.username, password: loginData.password })
+    router.push('/')
   } catch (error) {
     console.log(error)
   }
