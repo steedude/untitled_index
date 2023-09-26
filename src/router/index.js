@@ -59,13 +59,11 @@ router.beforeEach((to, from, next) => {
   const { isLogin } = storeToRefs(userStore)
   const loginDeny = ['/login', '/register']
   const loginOnly = ['/memberArea']
-  console.log(isLogin.value)
+
   if (isLogin.value && loginDeny.includes(to.path)) {
-    console.log('123')
     return next({ path: '/deny' })
   }
   if (!isLogin.value && loginOnly.includes(to.path)) {
-    console.log('456')
     return next({ path: '/deny' })
   }
   return next()
