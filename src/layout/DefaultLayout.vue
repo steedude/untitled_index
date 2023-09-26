@@ -9,11 +9,11 @@ const { logoutUser } = userStore
 
 <template>
   <div class="flex justify-between items-center">
-    <div>
+    <div class="link_container">
       <RouterLink to="/">首頁</RouterLink>
       <RouterLink to="/about">關於</RouterLink>
     </div>
-    <div>
+    <div class="login_container">
       <RouterLink v-if="!isLogin" to="/login">登入</RouterLink>
       <button v-if="isLogin" @click="logoutUser">登出</button>
     </div>
@@ -22,14 +22,12 @@ const { logoutUser } = userStore
 </template>
 
 <style lang="scss" scoped>
-/* nav {
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-} */
-
-/* nav a {
-  display: inline-block;
-  padding: 0 1rem;
-} */
+.link_container {
+  a {
+    @apply mr-4;
+  }
+}
+.login_container {
+  @apply mr-4;
+}
 </style>

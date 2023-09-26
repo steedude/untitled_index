@@ -1,1 +1,3 @@
-<template>404 error</template>
+<template>
+  <div>404 error</div>
+</template>
