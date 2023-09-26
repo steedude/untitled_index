@@ -5,12 +5,10 @@ import { ref } from 'vue'
 import { loginUserApi, logoutUserApi } from '@/apis/user'
 import { registerUserApi } from '@/apis/user'
 
-const DEFAULT_IMAGE = 'https://randomuser.me/api/portraits/lego/0.jpg'
-
 export default defineStore(
   'user',
   () => {
-    const account = ref('')
+    const username = ref('')
     const updated = ref('')
     const isLogin = ref(false)
 
@@ -24,8 +22,8 @@ export default defineStore(
     }
 
     function setUserValueByData(serverUserData) {
-      account.value = serverUserData.account
-      updated.value = serverUserData.image || DEFAULT_IMAGE
+      username.value = serverUserData.username
+      updated.value = serverUserData.updated
     }
 
     // async function setUserInfo(nameStr, teamStr) {
@@ -40,7 +38,7 @@ export default defineStore(
     async function logoutUser() {
       await logoutUserApi()
       localStorage.removeItem('untitled_index_token')
-      account.value = ''
+      username.value = ''
       updated.value = ''
       isLogin.value = false
     }
@@ -64,7 +62,7 @@ export default defineStore(
     }
 
     return {
-      account,
+      username,
       updated,
       isLogin,
       getToken,
