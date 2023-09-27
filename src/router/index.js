@@ -38,13 +38,14 @@ const router = createRouter({
     {
       path: '/deny',
       name: 'deny',
-      meta: { layout: 'DefaultLayout' },
+      meta: { layout: 'ErrorLayout' },
       component: () => import('../views/DenyView.vue')
     },
 
     {
       path: '/404',
       name: '404',
+      meta: { layout: 'ErrorLayout' },
       component: () => import('../views/ErrorView.vue')
     },
     {
