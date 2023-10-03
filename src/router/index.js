@@ -33,7 +33,7 @@ const router = createRouter({
       path: '/memberArea',
       name: 'memberArea',
       meta: { layout: 'DefaultLayout' },
-      component: () => import('../views/memberArea.vue')
+      component: () => import('../views/MemberArea.vue')
     },
     {
       path: '/deny',
