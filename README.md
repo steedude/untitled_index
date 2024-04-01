@@ -1,35 +1,16 @@
-# reserve-index
+# untitled_index
 
-This template should help get you started developing with Vue 3 in Vite.
+## 功能
 
-## Recommended IDE Setup
+測試第三方登入
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 本地端測試
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## 伺服器上部署
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+網頁放在cloudflare，透過github自動部署，部署在
+[silver-tercel.com](https://silver-tercel.com/)
